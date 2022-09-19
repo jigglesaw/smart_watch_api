@@ -36,18 +36,8 @@ model = XGBRegressor()
 res = model.fit(X_train, Y_train)
 test_data_prediction = model.predict(X_test)
 print(test_data_prediction)
-'''
-age = input('enter your age:')
-weight = input('enter your weight:')
-height = input('enter your height:')
-gender = input('enter your gender:')
-duration = input('enter duration:')
-with open('test.csv', 'w', newline='') as fp:
-    a = csv.writer(fp)
-    data= [['Gender', 'Age', 'Height', 'Weight', 'Duration', 'Heart_Rate', 'Body_Temp'],[gender, age, height, weight, duration, 105, 40.8]]
-    a.writerows(data)
-    df = pd.read_csv('C:/Users/knick/Downloads/smart_watch_ai_exercise_app/test.csv')
-    print(df)
+df = pd.read_csv('C:/Users/abhij/Desktop/test.csv')
+print(df)
 test = model.predict(df)
 print(test)
 if(test<20):
@@ -59,7 +49,7 @@ elif(test>50 and test<=100):
 elif(test>100 and test<=200):
     print('Cardio')
 elif(test>200):
-    print('Walking, other low intensity exercise')'''
+    print('Walking, other low intensity exercise')
 data_cols = ['Gender', 'Age', 'Height', 'Weight', 'Duration']
 joblib.dump(res, 'model.pkl') 
 joblib.dump(data_cols, 'model_cols.pkl')
